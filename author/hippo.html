@@ -1,42 +1,7 @@
 <!DOCTYPE html>
-<html lang="zh">
-<head>
-        <meta charset="utf-8" />
-        <title>Hippo's Blog - Hippo</title>
-        <link rel="stylesheet" href="http://seven332.github.io/theme/css/main.css" />
-
-        <!--[if IE]>
+<html lang="zh"><head><meta charset="utf-8"><title>Hippo's Blog - Hippo</title><link rel="stylesheet" href="http://seven332.github.io/theme/css/main.css"><!--[if IE]>
             <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-        <![endif]-->
-</head>
-
-<body id="index" class="home">
-        <header id="banner" class="body">
-                <h1><a href="http://seven332.github.io/">Hippo's Blog </a></h1>
-                <nav><ul>
-                    <li><a href="http://seven332.github.io/category/android.html">Android</a></li>
-                    <li><a href="http://seven332.github.io/category/wu.html">无</a></li>
-                </ul></nav>
-        </header><!-- /#banner -->
-
-            <aside id="featured" class="body">
-                <article>
-                    <h1 class="entry-title"><a href="http://seven332.github.io/switchpreference-zai-pre-l-xia-de-bug.html">SwitchPreference 在 pre-L 下的 bug</a></h1>
-<footer class="post-info">
-        <abbr class="published" title="2015-09-29T16:15:00+08:00">
-                发表于：15-09-29 16 Tue
-        </abbr>
-
-        <p>
-                作者：                        <a class="url fn" href="http://seven332.github.io/author/hippo.html">Hippo</a>
-        </p>
-<p>分类： <a href="http://seven332.github.io/category/android.html">Android</a></p>
-
-</footer><!-- /.post-info --><p>在 <a href="https://github.com/seven332/Nimingban">Nimingban</a> 这个应用中，最开始我是把暗色主题用 SwitchPreference 放在设置界面里的，而且是第一项。后来有用户反馈说是把设置往下滑动，会出现界面闪烁。我听后感觉很奇怪，因为我这不能重现这个 bug，而且设置界面这方面的代码我也没有用什么奇技淫巧，想必不太可能是我的锅。既然不是我的锅那么就是系统的锅了。好在这个问题貌似只是几个用户会遇到，我也就没太注意，直接在设置中删掉暗色主题的设置，移到右侧栏的下面，自认为完美地解决了这个问题。</p>
-<p>后来又看到有用户反馈说随着设置界面的滑动，设置项的值会变化。看来这个问题并没有被解决。想想看肯定还是系统的问题。查询了一番果然是系统的问题，而且 lollipop 以下的都有这个问题。这个问题已经有人在 stackoverflow 上<a href="http://stackoverflow.com/questions/15632215/preference-items-being-automatically-re-set">问了</a>，而且提交了 <a href="https://code.google.com/p/android/issues/detail?id=26194">issue</a>。</p>
-<p>问题的原因在提交的 issue 里描述的很清楚。PreferenceFragment 用的是 ListView，ListView 会对控件重复使用，问题就出现在重复使用的过程中。</p>
-<p>kitkat-mr2.2-release (API 19) SwitchPreference 相关片段</p>
-<div class="highlight"><pre><span class="kd">private</span> <span class="kd">final</span> <span class="n">Listener</span> <span class="n">mListener</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Listener</span><span class="o">();</span>
+        <![endif]--></head><body id="index" class="home"><header id="banner" class="body"><h1><a href="http://seven332.github.io/">Hippo's Blog </a></h1><nav><ul><li><a href="http://seven332.github.io/category/android.html">Android</a></li><li><a href="http://seven332.github.io/category/wu.html">无</a></li></ul></nav></header><aside id="featured" class="body"><article><h1 class="entry-title"><a href="http://seven332.github.io/switchpreference-zai-pre-l-xia-de-bug.html">SwitchPreference 在 pre-L 下的 bug</a></h1><footer class="post-info"><abbr class="published" title="2015-09-29T16:15:00+08:00"> 发表于：15-09-29 16 Tue </abbr><p> 作者： <a class="url fn" href="http://seven332.github.io/author/hippo.html">Hippo</a></p><p>分类： <a href="http://seven332.github.io/category/android.html">Android</a></p></footer><p>在 <a href="https://github.com/seven332/Nimingban">Nimingban</a> 这个应用中，最开始我是把暗色主题用 SwitchPreference 放在设置界面里的，而且是第一项。后来有用户反馈说是把设置往下滑动，会出现界面闪烁。我听后感觉很奇怪，因为我这不能重现这个 bug，而且设置界面这方面的代码我也没有用什么奇技淫巧，想必不太可能是我的锅。既然不是我的锅那么就是系统的锅了。好在这个问题貌似只是几个用户会遇到，我也就没太注意，直接在设置中删掉暗色主题的设置，移到右侧栏的下面，自认为完美地解决了这个问题。</p><p>后来又看到有用户反馈说随着设置界面的滑动，设置项的值会变化。看来这个问题并没有被解决。想想看肯定还是系统的问题。查询了一番果然是系统的问题，而且 lollipop 以下的都有这个问题。这个问题已经有人在 stackoverflow 上<a href="http://stackoverflow.com/questions/15632215/preference-items-being-automatically-re-set">问了</a>，而且提交了 <a href="https://code.google.com/p/android/issues/detail?id=26194">issue</a>。</p><p>问题的原因在提交的 issue 里描述的很清楚。PreferenceFragment 用的是 ListView，ListView 会对控件重复使用，问题就出现在重复使用的过程中。</p><p>kitkat-mr2.2-release (API 19) SwitchPreference 相关片段</p><div class="highlight"><pre><span class="kd">private</span> <span class="kd">final</span> <span class="n">Listener</span> <span class="n">mListener</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Listener</span><span class="o">();</span>
 
 <span class="kd">private</span> <span class="kd">class</span> <span class="nc">Listener</span> <span class="kd">implements</span> <span class="n">CompoundButton</span><span class="o">.</span><span class="na">OnCheckedChangeListener</span> <span class="o">{</span>
     <span class="nd">@Override</span>
@@ -72,11 +37,7 @@
 
     <span class="n">syncSummaryView</span><span class="o">(</span><span class="n">view</span><span class="o">);</span>
 <span class="o">}</span>
-</pre></div>
-
-
-<p>lollipop-release (API 21) SwitchPreference 相关片段</p>
-<div class="highlight"><pre><span class="kd">private</span> <span class="kd">final</span> <span class="n">Listener</span> <span class="n">mListener</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Listener</span><span class="o">();</span>
+</pre></div><p>lollipop-release (API 21) SwitchPreference 相关片段</p><div class="highlight"><pre><span class="kd">private</span> <span class="kd">final</span> <span class="n">Listener</span> <span class="n">mListener</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Listener</span><span class="o">();</span>
 
 <span class="kd">private</span> <span class="kd">class</span> <span class="nc">Listener</span> <span class="kd">implements</span> <span class="n">CompoundButton</span><span class="o">.</span><span class="na">OnCheckedChangeListener</span> <span class="o">{</span>
     <span class="nd">@Override</span>
@@ -115,15 +76,7 @@
 
     <span class="n">syncSummaryView</span><span class="o">(</span><span class="n">view</span><span class="o">);</span>
 <span class="o">}</span>
-</pre></div>
-
-
-<p>在 onBindView 里可以看到明显的不同，在 lollipop-release 中多了 switchView.setOnCheckedChangeListener(null)，这就是用来解决这个 bug 的。</p>
-<p>假设在滚动 ListView 的过程中，上面的 SwitchPreference 滑出了屏幕，下面的 SwitchPreference 滑入了屏幕，那么下面的 SwitchPreference 就会用上面的 SwitchPreference 的控件，下面的 SwitchPreference 的 onBindView 中的 checkableView 就会是上面的 SwitchPreference 的 Switch。这个时候在 kitkat-mr2.2-release 中，会直接 setChecked，倘若两个 SwitchPreference 的值不同，就会引起 Switch 的 OnCheckedChangeListener 调用 onCheckedChanged。但是此时，Switch 的 OnCheckedChangeListener 依旧是上面的 SwitchPreference 的 mListener 字段，这就导致上面的 SwitchPreference 的值的变化，产生了 bug。</p>
-<p>解决方法也是直接在 setChecked 之前设置 OnCheckedChangeListener 为 null。</p>
-<p>当然我无法修改用户手机系统，只好自己重写。</p>
-<p>FixedSwitchPreference.java</p>
-<div class="highlight"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">FixedSwitchPreference</span> <span class="kd">extends</span> <span class="n">TwoStatePreference</span> <span class="o">{</span>
+</pre></div><p>在 onBindView 里可以看到明显的不同，在 lollipop-release 中多了 switchView.setOnCheckedChangeListener(null)，这就是用来解决这个 bug 的。</p><p>假设在滚动 ListView 的过程中，上面的 SwitchPreference 滑出了屏幕，下面的 SwitchPreference 滑入了屏幕，那么下面的 SwitchPreference 就会用上面的 SwitchPreference 的控件，下面的 SwitchPreference 的 onBindView 中的 checkableView 就会是上面的 SwitchPreference 的 Switch。这个时候在 kitkat-mr2.2-release 中，会直接 setChecked，倘若两个 SwitchPreference 的值不同，就会引起 Switch 的 OnCheckedChangeListener 调用 onCheckedChanged。但是此时，Switch 的 OnCheckedChangeListener 依旧是上面的 SwitchPreference 的 mListener 字段，这就导致上面的 SwitchPreference 的值的变化，产生了 bug。</p><p>解决方法也是直接在 setChecked 之前设置 OnCheckedChangeListener 为 null。</p><p>当然我无法修改用户手机系统，只好自己重写。</p><p>FixedSwitchPreference.java</p><div class="highlight"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">FixedSwitchPreference</span> <span class="kd">extends</span> <span class="n">TwoStatePreference</span> <span class="o">{</span>
 
     <span class="kd">private</span> <span class="kd">static</span> <span class="n">Method</span> <span class="n">sSyncSummaryViewMethod</span><span class="o">;</span>
 
@@ -277,11 +230,7 @@
         <span class="k">return</span> <span class="n">mSwitchOff</span><span class="o">;</span>
     <span class="o">}</span>
 <span class="o">}</span>
-</pre></div>
-
-
-<p>attrs.xml</p>
-<div class="highlight"><pre><span class="nt">&lt;resources&gt;</span>
+</pre></div><p>attrs.xml</p><div class="highlight"><pre><span class="nt">&lt;resources&gt;</span>
 
     <span class="nt">&lt;declare-styleable</span> <span class="na">name=</span><span class="s">&quot;FixedSwitchPreference&quot;</span><span class="nt">&gt;</span>
         <span class="c">&lt;!-- The summary for the Preference in a PreferenceActivity screen when the</span>
@@ -304,11 +253,7 @@
     <span class="nt">&lt;/declare-styleable&gt;</span>
 
 <span class="nt">&lt;/resources&gt;</span>
-</pre></div>
-
-
-<p>preference_widget_fixed_switch.xml</p>
-<div class="highlight"><pre><span class="nt">&lt;android.support.v7.widget.SwitchCompat</span>
+</pre></div><p>preference_widget_fixed_switch.xml</p><div class="highlight"><pre><span class="nt">&lt;android.support.v7.widget.SwitchCompat</span>
     <span class="na">xmlns:android=</span><span class="s">&quot;http://schemas.android.com/apk/res/android&quot;</span>
     <span class="na">android:id=</span><span class="s">&quot;@+id/switchWidget&quot;</span>
     <span class="na">android:layout_width=</span><span class="s">&quot;wrap_content&quot;</span>
@@ -316,11 +261,7 @@
     <span class="na">android:layout_gravity=</span><span class="s">&quot;center&quot;</span>
     <span class="na">android:padding=</span><span class="s">&quot;16dp&quot;</span>
     <span class="na">android:focusable=</span><span class="s">&quot;false&quot;</span><span class="nt">/&gt;</span>
-</pre></div>
-
-
-<p>调用的话就这么写</p>
-<div class="highlight"><pre><span class="nt">&lt;com.hippo.preference.FixedSwitchPreference</span>
+</pre></div><p>调用的话就这么写</p><div class="highlight"><pre><span class="nt">&lt;com.hippo.preference.FixedSwitchPreference</span>
     <span class="na">xmlns:app=</span><span class="s">&quot;http://schemas.android.com/apk/res-auto&quot;</span>
     <span class="na">style=</span><span class="s">&quot;?android:attr/preferenceStyle&quot;</span>
     <span class="na">android:key=</span><span class="s">&quot;xxxxxx&quot;</span>
@@ -328,92 +269,8 @@
     <span class="na">app:summaryOn=</span><span class="s">&quot;@string/main_save_image_auto_summary_on&quot;</span>
     <span class="na">app:summaryOff=</span><span class="s">&quot;@string/main_save_image_auto_summary_off&quot;</span>
     <span class="na">android:widgetLayout=</span><span class="s">&quot;@layout/preference_widget_fixed_switch&quot;</span><span class="nt">/&gt;</span>
-</pre></div>
-
-
-<p><strong>要注意的是</strong>一定要加上 style="?android:attr/preferenceStyle"，这是为了保证 layout 与主题所用的一样，否则标题会变得很大。</p><p><a href="http://seven332.github.io/switchpreference-zai-pre-l-xia-de-bug.html#disqus_thread">来看评论</a></p>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>其他文章</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="http://seven332.github.io/android-dateformat-guan-yu-xiao-shi-de-jie-xi.html" rel="bookmark"
-                           title="Permalink to Android DateFormat 关于小时的解析">Android DateFormat 关于小时的解析</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2015-09-29T15:00:00+08:00">
-                发表于：15-09-29 15 Tue
-        </abbr>
-
-        <p>
-                作者：                        <a class="url fn" href="http://seven332.github.io/author/hippo.html">Hippo</a>
-        </p>
-<p>分类： <a href="http://seven332.github.io/category/android.html">Android</a></p>
-
-</footer><!-- /.post-info -->                <p>这是以前写的文章。</p>
-<p>这是以前遇到的问题，具体可以在<a href="https://github.com/seven332/EhViewer/issues/16">这里</a>看到。今天不想做别的事所以又研究了下。</p>
-<p>我本来是想弄个显示时间的控件，记得 Android 本身就有个 TextClock 就直接拿过来用了。结果这个是 JELLY_BEAN_MR1（API 17） 的时候加入的。为了兼容旧的 Android 本版，我直接把 TextClock 的代码拷贝了一份修改了下就能用了。</p>
-<p>后来有看到别人发的截图，时间显示的是 HH:什么什么。我当时没有注意。后来有人发个了 issue，我才开始注意这个问题。</p>
-<p>JELLY_BEAN_MR1（API 17） TextClock 默认解析格式是</p>
-<div class="highlight"><pre><span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">CharSequence</span> <span class="n">DEFAULT_FORMAT_12_HOUR</span> <span class="o">=</span> <span class="s">&quot;h:mm aa&quot;</span><span class="o">;</span>
-<span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">CharSequence</span> <span class="n">DEFAULT_FORMAT_24_HOUR</span> <span class="o">=</span> <span class="s">&quot;k ...</span></pre></div>
-                <a class="readmore" href="http://seven332.github.io/android-dateformat-guan-yu-xiao-shi-de-jie-xi.html">来看更多</a>
-<p><a href="http://seven332.github.io/android-dateformat-guan-yu-xiao-shi-de-jie-xi.html#disqus_thread">来看评论</a></p>                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="http://seven332.github.io/hello-world.html" rel="bookmark"
-                           title="Permalink to Hello World">Hello World</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2015-09-29T14:32:00+08:00">
-                发表于：15-09-29 14 Tue
-        </abbr>
-
-        <p>
-                作者：                        <a class="url fn" href="http://seven332.github.io/author/hippo.html">Hippo</a>
-        </p>
-<p>分类： <a href="http://seven332.github.io/category/wu.html">无</a></p>
-
-</footer><!-- /.post-info -->                <p>还是要写点东西，对自己对其他人都有好处。以前也准备弄个博客，可是代码显示怎么也弄不好。当时用的是 Jekyll，ruby 我也看不懂，一不爽就不弄了。现在用的是 Pelican，python 的话至少还是看的懂的，平时会用她写些小东西。代码显示方面也没怎么配置直接就能用了。</p>
-                <a class="readmore" href="http://seven332.github.io/hello-world.html">来看更多</a>
-<p><a href="http://seven332.github.io/hello-world.html#disqus_thread">来看评论</a></p>                </div><!-- /.entry-content -->
-            </article></li>
-                </ol><!-- /#posts-list -->
-                </section><!-- /#content -->
-        <section id="extras" class="body">
-                <div class="blogroll">
-                        <h2>友情链接</h2>
-                        <ul>
-                            <li><a href="#">无</a></li>
-                        </ul>
-                </div><!-- /.blogroll -->
-                <div class="social">
-                        <h2>社交</h2>
-                        <ul>
-
-                            <li><a href="#">无</a></li>
-                        </ul>
-                </div><!-- /.social -->
-        </section><!-- /#extras -->
-
-        <footer id="contentinfo" class="body">
-                <address id="about" class="vcard body">
-                自豪地采用 <a href="http://getpelican.com/">Pelican</a>，多谢 <a href="http://python.org">Python</a>
-                </address><!-- /#about -->
-
-                <p>该主题修改自 <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">notmyidea</a></p>
-        </footer><!-- /#contentinfo -->
-
-<script type="text/javascript">
+</pre></div><p><strong>要注意的是</strong>一定要加上 style="?android:attr/preferenceStyle"，这是为了保证 layout 与主题所用的一样，否则标题会变得很大。</p><p><a href="http://seven332.github.io/switchpreference-zai-pre-l-xia-de-bug.html#disqus_thread">来看评论</a></p></article></aside><section id="content" class="body"><h1>其他文章</h1><hr><ol id="posts-list" class="hfeed"><li><article class="hentry"><header><h1><a href="http://seven332.github.io/android-dateformat-guan-yu-xiao-shi-de-jie-xi.html" rel="bookmark" title="Permalink to Android DateFormat 关于小时的解析">Android DateFormat 关于小时的解析</a></h1></header><div class="entry-content"><footer class="post-info"><abbr class="published" title="2015-09-29T15:00:00+08:00"> 发表于：15-09-29 15 Tue </abbr><p> 作者： <a class="url fn" href="http://seven332.github.io/author/hippo.html">Hippo</a></p><p>分类： <a href="http://seven332.github.io/category/android.html">Android</a></p></footer><p>这是以前写的文章。</p><p>这是以前遇到的问题，具体可以在<a href="https://github.com/seven332/EhViewer/issues/16">这里</a>看到。今天不想做别的事所以又研究了下。</p><p>我本来是想弄个显示时间的控件，记得 Android 本身就有个 TextClock 就直接拿过来用了。结果这个是 JELLY_BEAN_MR1（API 17） 的时候加入的。为了兼容旧的 Android 本版，我直接把 TextClock 的代码拷贝了一份修改了下就能用了。</p><p>后来有看到别人发的截图，时间显示的是 HH:什么什么。我当时没有注意。后来有人发个了 issue，我才开始注意这个问题。</p><p>JELLY_BEAN_MR1（API 17） TextClock 默认解析格式是</p><div class="highlight"><pre><span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">CharSequence</span> <span class="n">DEFAULT_FORMAT_12_HOUR</span> <span class="o">=</span> <span class="s">&quot;h:mm aa&quot;</span><span class="o">;</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">CharSequence</span> <span class="n">DEFAULT_FORMAT_24_HOUR</span> <span class="o">=</span> <span class="s">&quot;k ...</span></pre></div><a class="readmore" href="http://seven332.github.io/android-dateformat-guan-yu-xiao-shi-de-jie-xi.html">来看更多</a><p><a href="http://seven332.github.io/android-dateformat-guan-yu-xiao-shi-de-jie-xi.html#disqus_thread">来看评论</a></p></div></article></li><li><article class="hentry"><header><h1><a href="http://seven332.github.io/hello-world.html" rel="bookmark" title="Permalink to Hello World">Hello World</a></h1></header><div class="entry-content"><footer class="post-info"><abbr class="published" title="2015-09-29T14:32:00+08:00"> 发表于：15-09-29 14 Tue </abbr><p> 作者： <a class="url fn" href="http://seven332.github.io/author/hippo.html">Hippo</a></p><p>分类： <a href="http://seven332.github.io/category/wu.html">无</a></p></footer><p>还是要写点东西，对自己对其他人都有好处。以前也准备弄个博客，可是代码显示怎么也弄不好。当时用的是 Jekyll，ruby 我也看不懂，一不爽就不弄了。现在用的是 Pelican，python 的话至少还是看的懂的，平时会用她写些小东西。代码显示方面也没怎么配置直接就能用了。</p><a class="readmore" href="http://seven332.github.io/hello-world.html">来看更多</a><p><a href="http://seven332.github.io/hello-world.html#disqus_thread">来看评论</a></p></div></article></li></ol></section><section id="extras" class="body"><div class="blogroll"><h2>友情链接</h2><ul><li><a href="#">无</a></li></ul></div><div class="social"><h2>社交</h2><ul><li><a href="#">无</a></li></ul></div></section><footer id="contentinfo" class="body"><address id="about" class="vcard body"> 自豪地采用 <a href="http://getpelican.com/">Pelican</a>，多谢 <a href="http://python.org">Python</a></address><p>该主题修改自 <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">notmyidea</a></p></footer><script type="text/javascript">
     var disqus_shortname = 'seven332';
     (function () {
         var s = document.createElement('script'); s.async = true;
@@ -421,6 +278,4 @@
         s.src = 'https://' + disqus_shortname + '.disqus.com/count.js';
         (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
     }());
-</script>
-</body>
-</html>
+</script></body></html>
