@@ -19,8 +19,8 @@ DEFAULT_CATEGORY = u'无'
 THEME = "./theme"
 
 # Plugin
-PLUGIN_PATHS = ("./plugins",)
-PLUGINS = ()
+PLUGIN_PATHS = ('./plugins',)
+PLUGINS = ('minify',)
 
 # Comments
 DISQUS_SITENAME = "seven332"
