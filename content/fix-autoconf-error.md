@@ -1,5 +1,5 @@
 Title: 修正 autoconf 中出现的错误
-Date: 2015-02-07 23:34
+Date: 2016-02-07 23:34
 Category: C/C++
 
 有时跑 autoconf 会出现类似`error: possibly undefined macro: XXX`的问题。我在[这里](https://bbs.archlinux.org/viewtopic.php?id=161452)看到了解决方法。
