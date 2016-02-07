@@ -418,4 +418,13 @@ make.exe: *** [E:/JetBrains/Projects/CLionProjects/Image/libimage/obj/local/x86_
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;为啥要改成这个样子呢？大概是因为 &lt;code&gt;java.text.SimpleDateFormat&lt;/code&gt; 也是这个样子吧，具体可以看&lt;a href="http://docs.oracle.com/javase/6/docs/api/java/text/SimpleDateFormat.html"&gt;这里&lt;/a&gt;。unicode 也有一样的&lt;a href="http://www.unicode.org/reports/tr35/tr35-dates.html#Date_Format_Patterns"&gt;标准&lt;/a&gt;。&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Hippo</dc:creator><pubDate>Tue, 29 Sep 2015 15:00:00 +0800</pubDate><guid>tag:seven332.github.io,2015-09-29:android-dateformat-guan-yu-xiao-shi-de-jie-xi.html</guid></item><item><title>Hello World</title><link>http://seven332.github.io/hello-world.html</link><description>&lt;p&gt;还是要写点东西，对自己对其他人都有好处。以前也准备弄个博客，可是代码显示怎么也弄不好。当时用的是 Jekyll，ruby 我也看不懂，一不爽就不弄了。现在用的是 Pelican，python 的话至少还是看的懂的，平时会用她写些小东西。代码显示方面也没怎么配置直接就能用了。&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Hippo</dc:creator><pubDate>Tue, 29 Sep 2015 14:32:00 +0800</pubDate><guid>tag:seven332.github.io,2015-09-29:hello-world.html</guid></item></channel></rss>
+&lt;p&gt;为啥要改成这个样子呢？大概是因为 &lt;code&gt;java.text.SimpleDateFormat&lt;/code&gt; 也是这个样子吧，具体可以看&lt;a href="http://docs.oracle.com/javase/6/docs/api/java/text/SimpleDateFormat.html"&gt;这里&lt;/a&gt;。unicode 也有一样的&lt;a href="http://www.unicode.org/reports/tr35/tr35-dates.html#Date_Format_Patterns"&gt;标准&lt;/a&gt;。&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Hippo</dc:creator><pubDate>Tue, 29 Sep 2015 15:00:00 +0800</pubDate><guid>tag:seven332.github.io,2015-09-29:android-dateformat-guan-yu-xiao-shi-de-jie-xi.html</guid></item><item><title>Hello World</title><link>http://seven332.github.io/hello-world.html</link><description>&lt;p&gt;还是要写点东西，对自己对其他人都有好处。以前也准备弄个博客，可是代码显示怎么也弄不好。当时用的是 Jekyll，ruby 我也看不懂，一不爽就不弄了。现在用的是 Pelican，python 的话至少还是看的懂的，平时会用她写些小东西。代码显示方面也没怎么配置直接就能用了。&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Hippo</dc:creator><pubDate>Tue, 29 Sep 2015 14:32:00 +0800</pubDate><guid>tag:seven332.github.io,2015-09-29:hello-world.html</guid></item><item><title>修正 autoconf 中出现的错误</title><link>http://seven332.github.io/xiu-zheng-autoconf-zhong-chu-xian-de-cuo-wu.html</link><description>&lt;p&gt;有时跑 autoconf 会出现类似&lt;code&gt;error: possibly undefined macro: XXX&lt;/code&gt;的问题。我在&lt;a href="https://bbs.archlinux.org/viewtopic.php?id=161452"&gt;这里&lt;/a&gt;看到了解决方法。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;$ libtoolize --force
+$ aclocal
+$ autoheader
+$ automake --force-missing --add-missing
+$ autoconf
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;这样就好了。&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Hippo</dc:creator><pubDate>Sat, 07 Feb 2015 23:34:00 +0800</pubDate><guid>tag:seven332.github.io,2015-02-07:xiu-zheng-autoconf-zhong-chu-xian-de-cuo-wu.html</guid></item></channel></rss>
