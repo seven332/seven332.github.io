@@ -28,7 +28,14 @@ Windows Explorer 文件排序的默认效果符合我的期望。Microsoft 官�
 
 # Java 实现
 
-StackOverflow 上 wumpz 给出了一种[实现方法](https://stackoverflow.com/a/23249000)。这个实现方法相比之前的描述要丰富了许多，譬如加入了对`空格`与`.`的特殊处理。不过在切分字符串的时候还应排除空字符串。
+StackOverflow 上 wumpz 给出了一种[实现方法](https://stackoverflow.com/a/23249000)。这个实现方法相比之前的描述要丰富了许多，譬如加入了对`空格`与`.`的特殊处理。不过还是有几处值得优化的地方。
+
+1. 切分字符串时还应排除空字符串
+2. 切分字符串没必要一次性完成，而是可以边切分边比较
+3. 切分字符串较为简单，不必使用正则表达式
+4. 数字字符串的判断不要利用异常判断
+
+<script src="https://gist.github.com/seven332/eadc44f1b35f756e46c410a8487fcc1d.js"></script>
 
 # 缺陷
 
