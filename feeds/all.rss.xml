@@ -1,5 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Hippo's Blog</title><link>http://seven332.github.io/</link><description></description><lastBuildDate>Sun, 14 May 2017 16:27:00 +0800</lastBuildDate><item><title>在静态函数中使用匿名类可避免内存泄漏</title><link>http://seven332.github.io/zai-jing-tai-han-shu-zhong-shi-yong-ni-ming-lei-ke-bi-mian-nei-cun-xie-lou.html</link><description>&lt;p&gt;虽然 JLS 上说匿名类永远不是静态的，但放到静态函数中的话，他爹实例的引用就不存在了，效果和静态类一样，写起来也方便。&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Hippo</dc:creator><pubDate>Sun, 14 May 2017 16:27:00 +0800</pubDate><guid isPermaLink="false">tag:seven332.github.io,2017-05-14:/zai-jing-tai-han-shu-zhong-shi-yong-ni-ming-lei-ke-bi-mian-nei-cun-xie-lou.html</guid></item><item><title>Activity.isFinishing()</title><link>http://seven332.github.io/activityisfinishing.html</link><description>&lt;p&gt;&lt;code&gt;Activity.isFinishing()&lt;/code&gt; 挺有用的，可以在 &lt;code&gt;onDestroy()&lt;/code&gt; 里来判断 Activity 是真的要关闭还是只是要重新创建，方便资源释放。之前没想到这个，用了麻烦的方法来实现功能，翻源码才想起了这个。&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Hippo</dc:creator><pubDate>Thu, 22 Sep 2016 01:35:00 +0800</pubDate><guid isPermaLink="false">tag:seven332.github.io,2016-09-22:/activityisfinishing.html</guid></item><item><title>移植 7-Zip-JBinding 到 Android</title><link>http://seven332.github.io/yi-zhi-7-zip-jbinding-dao-android.html</link><description>&lt;p&gt;近期一直在做 7-Zip-JBinding 到 Android 的移植，目前算是完成了。7-Zip-JBinding 对 7-Zip 的封装完成度很高。不过在移植过程中还是遇到过一些问题。&lt;/p&gt;
+<rss version="2.0"><channel><title>Hippo's Blog</title><link>http://seven332.github.io/</link><description></description><lastBuildDate>Mon, 25 Sep 2017 11:30:00 +0800</lastBuildDate><item><title>自然排序</title><link>http://seven332.github.io/zi-ran-pai-xu.html</link><description>&lt;h1&gt;怎么排序&lt;/h1&gt;
+&lt;p&gt;有一个文件夹，里面有一堆图片，漫画浏览器需要知道哪个是第一张，哪个是第二张，对于压缩包也是这样。这就是个排序问题。&lt;/p&gt;
+&lt;p&gt;我用的方法就是直接&lt;code&gt;Arrays.sort(array)&lt;/code&gt;或者&lt;code&gt;Collections.sort(list)&lt;/code&gt;，也就是直接使用 String 中 char 的值来进行排序。&lt;/p&gt;
+&lt;p&gt;在图片命名即为规范的情况下，这是没有问题的。譬如：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;0001.jpg
+0002.jpg
+0003.jpg
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;然而在其他情况下就会出问题。譬如：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;nazo-no-kanojo-ekkusu-1.jpg
+nazo-no-kanojo-ekkusu-11.jpg
+nazo-no-kanojo-ekkusu-2.jpg
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;显然，&lt;code&gt;nazo-no-kanojo-ekkusu-2.jpg&lt;/code&gt;应该排在&lt;code&gt;nazo-no-kanojo-ekkusu-11.jpg&lt;/code&gt;前面的，而该排序算法做不到这点。问题出在了数字部分的比较。用户不可能按照理想情况，来对数字用零填充，使所有数字位数相同。那么需要对字符串中的数字部分单独处理 …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Hippo</dc:creator><pubDate>Mon, 25 Sep 2017 11:30:00 +0800</pubDate><guid isPermaLink="false">tag:seven332.github.io,2017-09-25:/zi-ran-pai-xu.html</guid></item><item><title>在静态函数中使用匿名类可避免内存泄漏</title><link>http://seven332.github.io/zai-jing-tai-han-shu-zhong-shi-yong-ni-ming-lei-ke-bi-mian-nei-cun-xie-lou.html</link><description>&lt;p&gt;虽然 JLS 上说匿名类永远不是静态的，但放到静态函数中的话，他爹实例的引用就不存在了，效果和静态类一样，写起来也方便。&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Hippo</dc:creator><pubDate>Sun, 14 May 2017 16:27:00 +0800</pubDate><guid isPermaLink="false">tag:seven332.github.io,2017-05-14:/zai-jing-tai-han-shu-zhong-shi-yong-ni-ming-lei-ke-bi-mian-nei-cun-xie-lou.html</guid></item><item><title>Activity.isFinishing()</title><link>http://seven332.github.io/activityisfinishing.html</link><description>&lt;p&gt;&lt;code&gt;Activity.isFinishing()&lt;/code&gt; 挺有用的，可以在 &lt;code&gt;onDestroy()&lt;/code&gt; 里来判断 Activity 是真的要关闭还是只是要重新创建，方便资源释放。之前没想到这个，用了麻烦的方法来实现功能，翻源码才想起了这个。&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Hippo</dc:creator><pubDate>Thu, 22 Sep 2016 01:35:00 +0800</pubDate><guid isPermaLink="false">tag:seven332.github.io,2016-09-22:/activityisfinishing.html</guid></item><item><title>移植 7-Zip-JBinding 到 Android</title><link>http://seven332.github.io/yi-zhi-7-zip-jbinding-dao-android.html</link><description>&lt;p&gt;近期一直在做 7-Zip-JBinding 到 Android 的移植，目前算是完成了。7-Zip-JBinding 对 7-Zip 的封装完成度很高。不过在移植过程中还是遇到过一些问题。&lt;/p&gt;
 &lt;p&gt;首先是创建 7z 格式压缩文件的时候会出现 native crash。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;JNI DETECTED ERROR IN APPLICATION: use of invalid jobject 0x7f49b9dd
 &lt;/pre&gt;&lt;/div&gt;
