@@ -23,6 +23,7 @@ github_username: seven332
 markdown: kramdown
 plugins:
   - jekyll-feed
+  - jekyll-archives
 
 kramdown:
   input: GFM
@@ -33,6 +34,10 @@ minima:
 
 disqus:
   shortname: seven332
+
+jekyll-archives:
+  enabled:
+    - categories
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
