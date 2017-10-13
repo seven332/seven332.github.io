@@ -2,7 +2,7 @@
 layout: post
 title: "修正 autoconf 中出现的错误"
 date: 2016-02-07 23:34
-categories: C/C++
+categories: Environment
 comments: true
 ---
 
