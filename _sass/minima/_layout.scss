@@ -248,3 +248,17 @@
     }
   }
 }
+
+.post-navigation {
+  display: block;
+  width: auto;
+  overflow: hidden;
+
+  .prev {
+    float: left;
+  }
+
+  .next {
+    float: right;
+  }
+}
