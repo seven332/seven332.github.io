@@ -32,4 +32,13 @@ fun test() = promise {
 
 另外一个问题就是如何在浏览器上测试生成的 js 代码。官方给出的[示例](https://github.com/JetBrains/kotlin-examples/tree/master/gradle/js-tests)是 node.js 来测试的。在浏览器测试的话就应该用 headless browser 了。搜索了一番发现 mocha-headless-chrome 可以用。那么解决方法就是生成测试入口 html，再调用 mocha-headless-chrome 来载入这个 html。
 
-所用的代码都可以再[这里](https://github.com/ehviewer-team/ehviewer-core)找到。
+想要让生成的 js 代码既能在 node.js 上跑，也能在浏览器上跑，只需要把`moduleKind`改为`moduleKind`。
+
+```gradle
+[compileKotlin2Js, compileTestKotlin2Js]*.configure {
+    kotlinOptions.metaInfo = true
+    kotlinOptions.moduleKind = 'umd'
+}
+```
+
+所用的代码都可以在[这里](https://github.com/ehviewer-team/ehviewer-core)找到。
