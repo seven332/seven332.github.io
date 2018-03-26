@@ -18,3 +18,5 @@ In Android 7.1 (API level 25) and earlier, launcher icons were sized at 48 x 48 
 - The system reserves the outer 18 dp on each of the 4 sides to create interesting visual effects, such as parallax or pulsing.
 
 开头一句和前两条比较重要。以前的图标是 48 x 48 的，现在前景和背景都要 108 x 108，中间的 72 x 72 是给人看的。其实说得还不够明白。现在 108 x 108 中间那一块 72 x 72 就对应以前的 48 x 48。直接线性变换就行了。至于多出来的那一部分是动画效果需要的。同时考虑到裁剪蒙版形状，72 x 72 的区域也不是完全显示，别都占满了。
+
+不过 Adaptive Icons 是不考虑 padding 的，这与之前的设计标准完全不一样，所以还需要做一些修改。
